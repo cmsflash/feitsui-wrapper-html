@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Feitsui Wrapper",
+  "version": "1.0",
+  "description": "A Chrome Web App wrapper for feitsui.com",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "unlimitedStorage",
+    "notifications",
+    "<all_urls>"
+  ]
+}
