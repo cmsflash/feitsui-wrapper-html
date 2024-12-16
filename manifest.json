@@ -3,14 +3,11 @@
   "name": "Feitsui Wrapper",
   "version": "1.0",
   "description": "A Chrome Web App wrapper for feitsui.com",
-  "action": {
-    "default_popup": "index.html"
-  },
-  "permissions": [
-    "activeTab",
-    "storage",
-    "unlimitedStorage",
-    "notifications",
-    "<all_urls>"
-  ]
+  "start_url": "index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "permissions": [ 
+    "storage" 
+  ]  
 }

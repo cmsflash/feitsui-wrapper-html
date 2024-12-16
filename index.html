@@ -9,10 +9,37 @@
   </style>
 </head>
 <body>
-  <iframe src="https://www.feitsui.com/" frameborder="0"></iframe>  
+  <iframe src="https://www.feitsui.com/" frameborder="0"></iframe>
   <footer style="background-color: red; color: white; text-align: center; position: fixed; bottom: 0; width: 100%;">
     Test
   </footer>
+  <button id="installButton" style="position: fixed; bottom: 50px; right: 20px; padding: 10px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
+    Install App
+  </button>
+  <script>
+    let deferredPrompt;
+    const installButton = document.getElementById('installButton');
+
+    window.addEventListener('beforeinstallprompt', (event) => {
+      event.preventDefault();
+      deferredPrompt = event;
+      installButton.style.display = 'block'; 
+    });
+
+    installButton.addEventListener('click', async () => {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === 'accepted') {
+          console.log('User accepted the install prompt');
+        } else {
+          console.log('User dismissed the install prompt');
+        }
+        deferredPrompt = null;
+        installButton.style.display = 'none'; 
+      }
+    });
+  </script>
 </body>
 </html>
 
